@@ -1,4 +1,4 @@
-#!/usr/local/bin/perl -wT
+#!/usr/bin/perl -wT
 #
 # ----------------------------------------------------------------------
 # sd2nbe
@@ -32,7 +32,7 @@ sd2nbe - convert Nessus session data to NBE format.
 
 Nessus offers a optional feature known as session saving (see
 L<http://www.nessus.org/doc/session_saving.html>).  It's intended as a
-means to recover results of interrupted scans (due, for example, to a
+means to recover results of interrupted scans (for example, due to a
 power outage or client machine crash), although it can also be used as a
 more general way of saving results.  Provided that the server was
 configured to support session saving and that the user elected to save
@@ -100,7 +100,6 @@ L<http://www.tifaware.com/perl/sd2nbe/>
 ############################################################################
 # Make sure we have access to the required modules.
 use 5;
-
 use strict;
 use Carp;
 use Getopt::Long;
@@ -126,17 +125,22 @@ GetOptions(
     \%options,
     'debug|d!',
     'help|h|?!',
-);
+) or $options{help} = 1;
+$0 =~ s/^.+\///;
 if ($options{help}) {
-    print "Usage: $0 [-d|--debug] [session-data-file]\n",
-          "  or\n",
-          "       $0 -h|-?|--help\n";
+    warn "\n",
+        "Usage: $0 [options] [session-data-file]\n",
+        "\n",
+        "Options:\n",
+        "  -?, -h, --help             Display this help and exit.\n",
+        "  -d, --debug                Display copious debugging messages while\n",
+        "                               converting session data.\n";
     exit(9);
 }
 
 
 ############################################################################
-warn "debug: reading from STDIN.\n" if $DEBUG;
+warn "debug: reading session data.\n" if $DEBUG;
 my(@hosts, $line, %scans);
 while (<>) {
     chomp;
