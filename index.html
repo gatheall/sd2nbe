@@ -131,6 +131,16 @@ nessus -i subnet-10-0-1.nbe -o subnet-10-0-1.xml
 </PRE></BLOCKQUOTE>
 </BLOCKQUOTE>
 
+<BLOCKQUOTE>Produce an HTML report from results.nbe showing only
+critical / high risk vulnerabilities: [NB: only results with risk
+factors of <I>Critical</I> and <I>High</I> are output, not those such as
+<I>Low to High</I>.]
+<BLOCKQUOTE><PRE>
+egrep -i '(Risk|Risk +factor) *: *(Critical|High)' results.nbe &gt; results-high.nbe
+nessus -i results-high.nbe -o results-high.html
+</PRE></BLOCKQUOTE>
+</BLOCKQUOTE>
+
 <BLOCKQUOTE>Create one HTML report for each host in results.nbe:
 <BLOCKQUOTE><PRE>
 awk -F'|' '$1 == "results" {hosts[$3]++} END {for (h in hosts) print h}' results.nbe  &gt; /tmp/hosts
