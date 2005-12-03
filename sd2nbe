@@ -5,7 +5,7 @@
 #
 # Written by George A. Theall, theall@tifaware.com
 #
-# Copyright (c) 2004, George A. Theall. All rights reserved.
+# Copyright (c) 2004-2005, George A. Theall. All rights reserved.
 #
 # This module is free software; you can redistribute it and/or modify
 # it under the same terms as Perl itself.
@@ -30,14 +30,16 @@ sd2nbe - convert Nessus session data to NBE format.
 
 =head1 DESCRIPTION
 
-Nessus offers a optional feature known as session saving (see
-L<http://www.nessus.org/doc/session_saving.html>).  It's intended as a
-means to recover results of interrupted scans (for example, due to a
-power outage or client machine crash), although it can also be used as a
-more general way of saving results.  Provided that the server was
-configured to support session saving and that the user elected to save
-the session when submitting a scan, session data will be saved in the
-directory C<${prefix}/var/nessus/users/${user}/sessions>. 
+Nessus offers a optional feature known as session saving.  [NB: In
+versions of Nessus before 2.2.0, you had to enable this with the
+C<--enable_save_sessions> option when running C<nessus-core/configure>.]
+It's intended as a means to recover results of interrupted scans (for
+example, due to a power outage or client machine crash), although it can
+also be used as a more general way of saving results.  Provided that the
+server was configured to support session saving and that the user
+elected to save the session when submitting a scan, session data will be
+saved in a directory such as
+C</usr/local/var/nessus/users/${user}/sessions>. 
 
 To recover results, a user connects to the Nessus server and restores
 the session.  The server then replays the session, scanning any hosts
@@ -90,7 +92,6 @@ Warnings are issued for hosts that were not scanned completely.
 =head1 SEE ALSO
 
 L<nessus(1)>, 
-L<http://www.nessus.org/doc/session_saving.html>,
 C<nessus-core/doc/nbe_file_format.txt>,
 L<http://www.tifaware.com/perl/sd2nbe/>
 
