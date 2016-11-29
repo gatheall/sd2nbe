@@ -1,3 +1,8 @@
+# DEPRECATED 
+
+The session saving feature in Nessus was deprecated and removed a long time ago, before the release of Nessus 3.x. As a result, this script is likely to be of value only to those who have a collection of session data from ancient scans.
+
+
 ## Introduction
 
 Nessus offers a feature known as session saving.  [NB: In versions of Nessus before 2.2.0, you had to enable this with the `--enable_save_sessions` option when running `nessus-core/configure`.] It's intended as a means to recover results of interrupted scans (due, for example, to a power outage or client machine crash), although it can also be used as a more general way of saving results.  Provided that the server was configured to support session saving and that the user elected to save the session when submitting a scan, session data will be saved in a directory such as `/usr/local/var/nessus/users/${user}/sessions`.
