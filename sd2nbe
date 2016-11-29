@@ -5,12 +5,10 @@
 #
 # Written by George A. Theall, theall@tifaware.com
 #
-# Copyright (c) 2004-2005, George A. Theall. All rights reserved.
+# Copyright (c) 2004-2016, George A. Theall. All rights reserved.
 #
 # This module is free software; you can redistribute it and/or modify
 # it under the same terms as Perl itself.
-#
-# $Id$
 # ----------------------------------------------------------------------
 
 
@@ -93,7 +91,7 @@ Warnings are issued for hosts that were not scanned completely.
 
 L<nessus(1)>, 
 C<nessus-core/doc/nbe_file_format.txt>,
-L<http://www.tifaware.com/perl/sd2nbe/>
+L<https://github.com/gatheall/sd2nbe>
 
 =cut
 
